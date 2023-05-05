@@ -6,6 +6,10 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import LL, { setLocale } from '$i18n/i18n-svelte'
+
+	export let data: LayoutData
+	$: setLocale(data.locale)
 </script>
 
 <!-- App Shell -->

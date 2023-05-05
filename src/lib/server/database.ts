@@ -19,6 +19,8 @@ if (dev) {
 		duration: number;
 		target: number;
 	}
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
     prisma.$on('query', (e: QueryEvent) => {
         console.log('Query: ' + e.query)
         console.log('Params: ' + e.params)

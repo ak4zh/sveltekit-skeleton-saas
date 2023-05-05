@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "npm-run-all --parallel vite:dev typesafe-i18n",
+		"vite:dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
@@ -15,7 +16,8 @@
 		"predev": "npm run prisma:migrate:dev",
 		"prisma:migrate:dev": "prisma migrate dev",
 		"prisma:migrate:reset": "prisma migrate reset --force",
-		"vercel-build": "prisma generate && prisma migrate deploy && npm run build"
+		"vercel-build": "prisma generate && prisma migrate deploy && npm run build",
+		"typesafe-i18n": "typesafe-i18n"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -30,6 +32,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"npm-run-all": "^4.1.5",
 		"postcss": "^8.4.23",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
@@ -45,6 +48,8 @@
 	"type": "module",
 	"dependencies": {
 		"@lucia-auth/adapter-prisma": "^2.0.0",
-		"lucia-auth": "^1.5.0"
+		"lucia-auth": "^1.5.0",
+		"stripe": "^12.4.0",
+		"typesafe-i18n": "^5.24.3"
 	}
 }
