@@ -11,7 +11,11 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"predev": "npm run prisma:migrate:dev",
+		"prisma:migrate:dev": "prisma migrate dev",
+		"prisma:migrate:reset": "prisma migrate reset --force",
+		"vercel-build": "prisma generate && prisma migrate deploy && npm run build"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -29,6 +33,7 @@
 		"postcss": "^8.4.23",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"prisma": "^4.13.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tailwindcss": "^3.3.2",
@@ -37,5 +42,9 @@
 		"vite": "^4.2.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@lucia-auth/adapter-prisma": "^2.0.0",
+		"lucia-auth": "^1.5.0"
+	}
 }
