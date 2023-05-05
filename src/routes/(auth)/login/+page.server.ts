@@ -2,8 +2,8 @@ import { fail, redirect } from "@sveltejs/kit";
 import { auth } from "$lib/server/lucia";
 
 // If the user exists, redirect authenticated users to the profile page.
-export const load = async ({ locals }) => {
-	const session = await locals.auth.validate();
+export const load = async (event) => {
+	const session = await event.locals.auth.validate();
 	if (session) throw redirect(302, "/");
 };
 
