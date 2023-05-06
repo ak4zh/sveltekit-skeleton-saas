@@ -37,6 +37,5 @@ export const POST = async ({ request }) => {
 		default:
 			throw Error('Something went wrong')
 	}
-
 	return json({ message: 'success' }, { status: 200 })
 }
