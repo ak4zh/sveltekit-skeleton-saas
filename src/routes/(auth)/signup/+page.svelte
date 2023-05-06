@@ -27,7 +27,7 @@
                 bind:value={$form.email}
             />
             {#if $errors.email}
-                <p class="error-message">{$errors.email}</p>
+                <p class="text-error-500">{$errors.email}</p>
             {/if}
         </label>
         <label class="label">
@@ -40,7 +40,7 @@
                 bind:value={$form.password}
             />
             {#if $errors.password}
-                <p class="error-message">{$errors.password}</p>
+                <p class="text-error-500">{$errors.password}</p>
             {/if}
         </label>
 		<button class="btn variant-filled-warning" type="submit">{$LL.ROUTE.AUTH.SUBMIT()}</button>
