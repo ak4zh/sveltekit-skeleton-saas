@@ -9,31 +9,22 @@ const schema = z.object({
 	password: z.string()
 });
 
+// If the user exists, redirect authenticated users to the profile page.
 export const load = async ({ locals }) => {
 	const form = await superValidate(schema);
 	const session = await locals.auth.validate();
 	if (session) throw redirect(302, "/profile");
-	return { form };
+	return { form }
 };
 
 export const actions = {
 	default: async ({ request, locals }) => {
 		const form = await superValidate(request, schema);
 		if (!form.valid) return fail(400, { form });
-		const email = form.data.email;
-		const password = form.data.password;
+
 		try {
-			const user = await auth.createUser({
-				primaryKey: {
-					providerId: "email",
-					providerUserId: email,
-					password
-				},
-				attributes: {
-					email
-				}
-			});
-			const session = await auth.createSession(user.id);
+			const key = await auth.useKey("email", form.data.email, form.data.password);
+			const session = await auth.createSession(key.userId);
 			locals.auth.setSession(session);
 		} catch (err) {
 			if (err instanceof LuciaError) {

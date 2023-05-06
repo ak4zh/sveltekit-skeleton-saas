@@ -2,10 +2,22 @@ import type { BaseTranslation } from '../i18n-types'
 
 const en = {
 	// TODO: your translations go here
+	ERRORS: {
+		INVALID_CREDENTIALS: "Invalid user credentials!",
+		UNKNOWN: "Something went wrong!"
+	},
+	BRANDING: {
+		NAME: "Sveltekit Skeleton SaaS"
+	},
+	SEO: {
+		TITLE: "Sveltekit Skeleton SaaS",
+		DESCRIPTION: "Sveltekit Skeleton SaaS template"
+	},
 	ROUTE: {
 		AUTH: {
-			LOG_IN: "Log In",
+			SIGN_IN: "Log In",
 			SIGN_UP: "Sign Up",
+			SIGN_OUT: "Log Out",
 			CREATE_ACCOUNT: "Create an account",
 			SUBMIT: "Submit",
 			EMAIL: "Email",
@@ -16,6 +28,9 @@ const en = {
 	PAGES: {
 		HOME: {
 			TAG_LINE: 'Website Tagline in English'
+		},
+		PROFILE: {
+			CHANGE_PASSWORD: "Change Password"
 		}
 		
 	}

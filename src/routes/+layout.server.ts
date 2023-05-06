@@ -1,4 +1,5 @@
-export const load = ({ locals: { locale } }) => {
+export const load = async ({ locals: { locale, auth } }) => {
+	const { user } = await auth.validateUser()
 	// pass locale information from "server-context" to "shared server + client context"
-	return { locale }
+	return { locale, user }
 }

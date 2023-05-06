@@ -14,16 +14,46 @@ export type Translation = RootTranslation
 export type Translations = RootTranslation
 
 type RootTranslation = {
+	ERRORS: {
+		/**
+		 * I​n​v​a​l​i​d​ ​u​s​e​r​ ​c​r​e​d​e​n​t​i​a​l​s​!
+		 */
+		INVALID_CREDENTIALS: string
+		/**
+		 * S​o​m​e​t​h​i​n​g​ ​w​e​n​t​ ​w​r​o​n​g​!
+		 */
+		UNKNOWN: string
+	}
+	BRANDING: {
+		/**
+		 * S​v​e​l​t​e​k​i​t​ ​S​k​e​l​e​t​o​n​ ​S​a​a​S
+		 */
+		NAME: string
+	}
+	SEO: {
+		/**
+		 * S​v​e​l​t​e​k​i​t​ ​S​k​e​l​e​t​o​n​ ​S​a​a​S
+		 */
+		TITLE: string
+		/**
+		 * S​v​e​l​t​e​k​i​t​ ​S​k​e​l​e​t​o​n​ ​S​a​a​S​ ​t​e​m​p​l​a​t​e
+		 */
+		DESCRIPTION: string
+	}
 	ROUTE: {
 		AUTH: {
 			/**
 			 * L​o​g​ ​I​n
 			 */
-			LOG_IN: string
+			SIGN_IN: string
 			/**
 			 * S​i​g​n​ ​U​p
 			 */
 			SIGN_UP: string
+			/**
+			 * L​o​g​ ​O​u​t
+			 */
+			SIGN_OUT: string
 			/**
 			 * C​r​e​a​t​e​ ​a​n​ ​a​c​c​o​u​n​t
 			 */
@@ -53,20 +83,56 @@ type RootTranslation = {
 			 */
 			TAG_LINE: string
 		}
+		PROFILE: {
+			/**
+			 * C​h​a​n​g​e​ ​P​a​s​s​w​o​r​d
+			 */
+			CHANGE_PASSWORD: string
+		}
 	}
 }
 
 export type TranslationFunctions = {
+	ERRORS: {
+		/**
+		 * Invalid user credentials!
+		 */
+		INVALID_CREDENTIALS: () => LocalizedString
+		/**
+		 * Something went wrong!
+		 */
+		UNKNOWN: () => LocalizedString
+	}
+	BRANDING: {
+		/**
+		 * Sveltekit Skeleton SaaS
+		 */
+		NAME: () => LocalizedString
+	}
+	SEO: {
+		/**
+		 * Sveltekit Skeleton SaaS
+		 */
+		TITLE: () => LocalizedString
+		/**
+		 * Sveltekit Skeleton SaaS template
+		 */
+		DESCRIPTION: () => LocalizedString
+	}
 	ROUTE: {
 		AUTH: {
 			/**
 			 * Log In
 			 */
-			LOG_IN: () => LocalizedString
+			SIGN_IN: () => LocalizedString
 			/**
 			 * Sign Up
 			 */
 			SIGN_UP: () => LocalizedString
+			/**
+			 * Log Out
+			 */
+			SIGN_OUT: () => LocalizedString
 			/**
 			 * Create an account
 			 */
@@ -95,6 +161,12 @@ export type TranslationFunctions = {
 			 * Website Tagline in English
 			 */
 			TAG_LINE: () => LocalizedString
+		}
+		PROFILE: {
+			/**
+			 * Change Password
+			 */
+			CHANGE_PASSWORD: () => LocalizedString
 		}
 	}
 }
