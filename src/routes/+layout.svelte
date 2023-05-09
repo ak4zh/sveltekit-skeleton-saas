@@ -12,16 +12,13 @@
 		Modal,
 		ProgressRadial,
 	} from '@skeletonlabs/skeleton'
-	import LL, { setLocale } from '$i18n/i18n-svelte'
 	import { loading } from '$lib/stores'
 	import { navigating, page } from '$app/stores'
 	import Heading from './Heading.svelte';
 	import { writable } from 'svelte/store';
 	import { MetaTags } from 'svelte-meta-tags';
+	import { i } from '@inlang/sdk-js';
 
-	export let data
-	$: ({ locale } = data)
-	$: setLocale(locale)
 	$: currentTab = writable($page.url.pathname)
 	$: isProtected = $page.route.id?.startsWith('/(protected)/')
 	$: loading.set(false)
@@ -29,8 +26,8 @@
 
 <MetaTags 
 	title="Home"
-	titleTemplate="%s | {$LL.SEO.TITLE()}"
-	description={$LL.SEO.DESCRIPTION()} 
+	titleTemplate="%s | {i('seo.title')}"
+	description={i('seo.description')} 
 />
 <Modal />
 

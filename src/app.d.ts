@@ -1,13 +1,7 @@
-type Locales = import('$i18n/i18n-types').Locales
-type TranslationFunctions = import('$i18n/i18n-types').TranslationFunctions
-
-
 declare global {
 	namespace App {
 		interface Locals {
 			auth: import("lucia-auth").AuthRequest;
-			locale: Locales;
-			LL: TranslationFunctions;
 		}
 		interface PageData {
 			user: import('lucia-auth').User

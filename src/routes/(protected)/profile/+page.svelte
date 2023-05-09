@@ -1,7 +1,8 @@
 <script lang="ts">
-	import LL from '$i18n/i18n-svelte';
 	import { loading } from '$lib/stores.js';
 	import { superForm } from 'sveltekit-superforms/client';
+    import { i } from '@inlang/sdk-js';
+
 	export let data;
 	const { form, delayed, enhance, allErrors, errors } = superForm(data.form);
 	$: loading.set($delayed)
@@ -15,10 +16,10 @@
 </script>
 
 <div class="grid grid-cols-1 gap-4">
-	<h1 class="text-center">{$LL.PAGES.PROFILE.CHANGE_PASSWORD()}</h1>
+	<h1 class="text-center">{i('change_password')}</h1>
 	<form method="POST" use:enhance class="max-w-3xl mx-auto p-4 card grid grid-cols-1 gap-4">
 		<label class="label">
-            <span>{$LL.ROUTE.AUTH.PASSWORD()}</span>
+            <span>{i('password')}</span>
             <input
                 class="input { $errors.password ? 'input-error' : '' }"
                 type="password"
@@ -31,7 +32,7 @@
             {/if}
 		</label>
 		<label class="label">
-            <span>{$LL.ROUTE.AUTH.PASSWORD()}</span>
+            <span>{i('password')}</span>
             <input
                 class="input { $errors.confirmPassword ? 'input-error' : '' }"
                 type="password"
@@ -43,6 +44,6 @@
                 <p class="text-error-500">{$errors.confirmPassword}</p>
             {/if}
 		</label>
-		<button class="btn variant-filled-warning" type="submit">{$LL.ROUTE.AUTH.SUBMIT()}</button>
+		<button class="btn variant-filled-warning" type="submit">{i('submit')}</button>
 	</form>
 </div>

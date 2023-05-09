@@ -1,8 +1,8 @@
 <script lang="ts">
-	import LL from '$i18n/i18n-svelte';
 	import { loading } from '$lib/stores.js';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { MetaTags } from 'svelte-meta-tags';
+	import { i } from '@inlang/sdk-js';
 
 	export let data;
 	const { form, delayed, enhance, allErrors, errors } = superForm(data.form);
@@ -10,15 +10,15 @@
 </script>
 
 <MetaTags 
-	title={$LL.ROUTE.AUTH.SIGN_IN()}
-	titleTemplate="%s | {$LL.SEO.TITLE()}"
+	title={i('signin')}
+	titleTemplate="%s | {i('seo.title')}"
 />
 
 <div class="grid grid-cols-1 gap-4">
-	<h1 class="text-center">{$LL.ROUTE.AUTH.SIGN_IN()}</h1>
+	<h1 class="text-center">{i('signin')}</h1>
 	<form method="POST" use:enhance class="max-w-3xl mx-auto p-4 card grid grid-cols-1 gap-4">
 		<label class="label">
-		<span>{$LL.ROUTE.AUTH.EMAIL()}</span>
+		<span>{i('email')}</span>
 		<input
 			class="input { $errors.email ? 'input-error' : '' }"
 			type="email"
@@ -31,7 +31,7 @@
 		{/if}
 		</label>
 		<label class="label">
-		<span>{$LL.ROUTE.AUTH.PASSWORD()}</span>
+		<span>{i('password')}</span>
 		<input
 			class="input { $errors.password ? 'input-error' : '' }"
 			type="password"
@@ -44,9 +44,9 @@
 		{/if}
 		</label>
 		<p>
-			{$LL.ROUTE.AUTH.NO_ACCOUNT()}
-			<a href="/signup">{$LL.ROUTE.AUTH.SIGN_UP()}</a>
+			{i('no_account')}
+			<a href="/signup">{i('signup')}</a>
 		</p>
-		<button class="btn variant-filled-warning" type="submit">{$LL.ROUTE.AUTH.SUBMIT()}</button>
+		<button class="btn variant-filled-warning" type="submit">{i('submit')}</button>
 	</form>
 </div>

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import LL from '$i18n/i18n-svelte'
+	import { i } from '@inlang/sdk-js'
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-10 text-center">
-		<h2 class="font-bold">{$LL.PAGES.HOME.TAG_LINE()}</h2>
+		<h2 class="font-bold">{i('tagline')}</h2>
 
 		<div class="flex justify-center space-x-2">
 			<a

@@ -1,0 +1,31 @@
+{
+  "app_name": "Sveltekit Skeleton SaaS",
+  "tagline": "Website Tagline in German",
+  "seo": {    
+      "title": "Sveltekit Skeleton SaaS",
+      "description": "Sveltekit Skeleton SaaS template"
+  },
+
+  "signin": "Log In",
+  "signup": "Sign Up",
+  "signout": "Log Out",
+  "create_account": "Create an account",
+  "submit": "Submit",
+  "email": "Email",
+  "password": "Password",
+  "no_account": "Don't have an account?",
+
+  "errors": {
+      "invalid_credentials": "Invalid user credentials!",
+      "unknown": "Something went wrong!"
+  },    
+
+  "pages": {
+    "home": {
+      "tag_line": "Website Tagline in English"
+    },
+    "profile": {
+      "change_password": "Change Password"
+    }
+  }
+}
